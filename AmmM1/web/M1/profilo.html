@@ -1,11 +1,48 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TOD</title>
+        <title>Profilo</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Fabrizio">
+        <meta name="keywords" content="profilo">
     </head>
     <body>
-        <div>TODO write content</div>
+        <div id="header">
+            <div id="title">
+                <h1>Profilo</h1>
+            </div>
+        </div>
+         <div id="navBar">
+            <ul>
+                <li><a href="descrizione.html">Descrizione</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+        </div>
+        
+        <div id="idBody">
+            <form action="#" method="POST">
+                <div id="datiAnagrafici">
+                <label for="nome">Inserisci nome</label>
+                <input type="text" name="nome" id="nome" value="Inserisci nome">
+                <label for="cognome">Inserisci cognome</label>
+                <input type="text" name="cognome" id="cognome" value="Inserisci cognome">
+                 <label for="data">Data di nascita</label>
+                <input type="text" name="data" id="data" value="Inserisci data">
+                </div>
+                <div id="foto">
+                <label for="immagineProfilo">Url Immagine del profilo</label>
+                <input type="text" name="immagineProfilo" id="immagineProfilo" value="Url">
+                </div>
+                <label for="frase">Frase di presentazione</label>
+                <input type="text" name="frase" id="frase" value="Inserisci frase">
+                <div id="pass">
+                <label for="password">Password</label>
+                <input type="text" name="password" id="password" value="Inserisci password">
+                <label for="conferma">Conferma password</label>
+                <input type="text" name="conferma" id="conferma" value="Conferma password">
+                </div>
+            </form>
+        </div>
     </body>
 </html>
