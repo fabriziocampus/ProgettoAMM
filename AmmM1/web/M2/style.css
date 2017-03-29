@@ -1,0 +1,64 @@
+body{   
+     background-color: #3B5998;
+     font: 17px/25px "Ariel",  Verdana, sans-serif;
+     color: #ffffff;
+}
+
+h1{
+    font: 30px "Ariel", Verdana, sans-serif;
+    font-weight: bold;
+    text-align: left;
+    color: #ffffff;
+}
+
+a:link, a:visited{
+    font: 22px "Ariel", Verdana, sans-serif;
+    text-decoration: none;
+    color: #ffffff;
+    padding-left: 20px;
+    
+}
+
+a:hover{
+       font-weight: bold;
+       color: #e0ebeb;
+}
+header{
+    border-bottom: 5px solid #ffffff;
+}
+#title{
+      display: inline-block;
+}
+
+#navBar, #navBar ul, #navBar li{
+    display: inline-block;
+}
+
+#idBody{
+    text-align: center;
+}
+
+.post{
+    border-bottom: 5px solid #ffffff;
+    border-left: 5px solid #ffffff;
+    border-top: 5px solid #ffffff;
+    border-right: 5px solid #ffffff;
+    margin-bottom: 10px;
+    margin-left: 500px;
+    margin-right: 200px;
+    margin-top: 10px;
+    padding-top: 25px;
+    padding-bottom: 100px;
+    padding-left: 15px;
+
+}
+.post img{
+    height: 70px;
+    width: 70px;
+    float: left;
+    display: inline-block;
+}
+.post h3{
+    font-size: 30px;
+    display: inline-block;
+}
