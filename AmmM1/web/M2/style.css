@@ -9,6 +9,10 @@ h1{
     font-weight: bold;
     text-align: left;
     color: #ffffff;
+    padding-left: 50px;
+    padding-right: 62px;
+    border-right: 5px solid #ffffff;
+    
 }
 
 a:link, a:visited{
@@ -19,9 +23,15 @@ a:link, a:visited{
     
 }
 
-a:hover{
+#navBar a:hover{
        font-weight: bold;
        color: #e0ebeb;
+}
+
+#segnaposto a:visited, #segnaposto a:link{
+    font: 22px "Ariel", Verdana, sans-serif;
+    text-decoration: none;
+    color: #3B5998;
 }
 header{
     border-bottom: 5px solid #ffffff;
@@ -32,10 +42,7 @@ header{
 
 #navBar, #navBar ul, #navBar li{
     display: inline-block;
-}
-
-#idBody{
-    text-align: center;
+    padding-left: 40px;
 }
 
 .post{
@@ -50,7 +57,7 @@ header{
     padding-top: 25px;
     padding-bottom: 100px;
     padding-left: 15px;
-
+    
 }
 .post img{
     height: 70px;
@@ -61,4 +68,128 @@ header{
 .post h3{
     font-size: 30px;
     display: inline-block;
+}
+#testo{
+    padding-left: 430px;
+    margin-top: 70px;
+    font: 50px "Ariel",  Verdana, sans-serif;
+    font-weight: bold;
+}
+.accesso{
+    border-bottom: 5px solid #ffffff;
+    border-left: 5px solid #ffffff;
+    border-top: 5px solid #ffffff;
+    border-right: 5px solid #ffffff;
+    margin-bottom: 10px;
+    margin-left: 400px;
+    margin-right: 400px;
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-bottom: 100px;
+    padding-left: 150px;
+    background-color: #ffffff;
+    border-radius: 15px;
+}
+
+#post label:after{
+    content: '\A';
+    white-space: pre;
+}
+
+#post label:before{
+    content: '\A';
+    white-space: pre;
+}
+
+#post input:focus, #datiAnagrafici input:focus{
+   outline: none;
+   border-color: #3B5998;
+   box-shadow: 0 0 20px yellow;
+}
+
+form button{
+    width: 354px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #3B5998;
+    color: #ffffff;
+    font-weight: bold;
+}
+#post label{
+    font: 45px "Ariel", Verdana, sans-serif;
+    padding-bottom: 10px;
+    color: #3B5998;
+}
+
+#post input:after{
+    content: '\A';
+    white-space: pre;
+}
+
+#post input, #datiAnagrafici input{
+    height: 30px;
+    width: 350px;
+}
+
+#post:after{
+     content: '\A';
+     white-space: pre;
+    
+}
+#testo img{
+    height: 70px;
+    width: 110px;
+    padding-right: 100px;
+}
+
+#idBodyinf{
+    background-color: #ffffff;
+    color: black;
+    padding-bottom: 270px;
+    padding-left: 10px;
+}
+
+#idBodyinf a:link{
+    color: #3B5998;
+    font-weight: bold;
+}
+#idBody #datiAnagrafici{
+    border-bottom: 5px solid #ffffff;
+    border-left: 5px solid #ffffff;
+    border-top: 5px solid #ffffff;
+    border-right: 5px solid #ffffff;
+    margin-bottom: 10px;
+    margin-left: 400px;
+    margin-right: 400px;
+    margin-top: 20px;
+    padding-top: 15px;
+    padding-bottom: 100px;
+    padding-left: 150px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    color: #3B5998;
+    font: 30px "Ariel", Verdana, sans-serif;
+}
+#idBody #datiAnagrafici label::after{
+    content: '\A';
+    white-space: pre;
+}
+#idBody #datiAnagrafici label::before{
+    content: '\A';
+    white-space: pre;
+}
+
+#colonna{
+    float: left;
+    border-right: 5px solid #ffffff;
+    padding-bottom: 500px;
+}
+
+#colonna img{
+    height: 30px;
+    width: 30px;
+}
+#colonna a::after{
+    content: '\A';
+    white-space: pre;
 }
