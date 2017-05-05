@@ -1,4 +1,11 @@
+.accesso #invalidDataWarning h3{
+    font: 22px "Ariel", Verdana, sans-serif;
+    color: #3B5998;
+}
+
+
 @media only screen and (min-width: 1024px){
+
 body{   
      background-color: #3B5998;
      font: 17px/25px "Ariel",  Verdana, sans-serif;
@@ -983,3 +990,4 @@ form button{
     height: 200px;
 }
 }  
+
