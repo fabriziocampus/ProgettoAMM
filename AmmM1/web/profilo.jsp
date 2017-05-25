@@ -65,7 +65,7 @@
                 <label for="conferma">Conferma password</label>
                 <input type="text" name="conferma" id="conferma" value="${utente.confermapsw}">
                 <button type="submit">Aggiorna</button>
-                <button type="submit">Elimina profilo</button>
+                 <button type="submit" name="canc" value="cancella">Elimina profilo</button>
                 </div>
             </form>
         </div>
