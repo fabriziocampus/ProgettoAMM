@@ -2,8 +2,6 @@
     font: 22px "Ariel", Verdana, sans-serif;
     color: #3B5998;
 }
-
-
 #logout {
    float: right;
    margin-right: 50px;
@@ -467,7 +465,7 @@ form button{
     white-space: pre;
 }
 
-#post input, #datiAnagrafici input, #idBody #nuovoPost input#nuovo, #idBody #nuovoPost input#allegato{
+#post input, #datiAnagrafici input, #idBody, #idBody #nuovoPost input#allegato{
     height: 20px;
     width: 150px;
 }

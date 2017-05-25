@@ -51,9 +51,9 @@
                           <c:when test="${empty newpost}">
                             <form action="NuovoPost" method="post">
                                 <img title="allegato" alt="allegato" src="allegato.png"><textarea name="textPost" id="textPost"></textarea><br />
-                                 <input type="radio" name="postType" id="text" value="textType" checked="checked">Testo
-                                 <input type="radio" name="postType" id="img" value="imgType">Immagine
-                                 <input type="radio" name="postType" id="link" value="linkType">Link<br />
+                                 <input type="radio" name="postType" id="textType" value="textType" checked="checked">Testo
+                                 <input type="radio" name="postType" id="imgType" value="imgType">Immagine
+                                 <input type="radio" name="postType" id="linkType" value="linkType">Link<br />
                                  <button type="submit" name="thereIsPost" value="needConfirm">Crea Post</button>
                             </form>
                         </c:when>
@@ -90,7 +90,7 @@
                         </div>
                         </c:if>
                         <c:if test="${post.postType == 'LINK'}">
-                            <a href="${post.contenuto}">Sito unica</a>
+                            <a href="${post.contenuto}">${post.contenuto}</a>
                         </c:if>
                     </div>
             </c:forEach>

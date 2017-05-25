@@ -68,9 +68,9 @@ public class NuovoPost extends HttpServlet {
                     post.setContenuto(content);
                     if(type.equals("textType"))
                         post.setPostType(Post.Type.TEXT);
-                   if(type.equals("imgtype"))
+                   if(type.equals("imgType"))
                         post.setPostType(Post.Type.IMAGE);
-                   if(type.equals("linktype"))
+                   if(type.equals("linkType"))
                         post.setPostType(Post.Type.LINK);
                     
                     post.setUser(UtenteRegistratoFactory.getInstance().getUtenteById((Integer)session.getAttribute("loggedUserID")));
