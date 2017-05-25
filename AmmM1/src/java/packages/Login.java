@@ -9,9 +9,14 @@ import amm.UtenteRegistrato;
 import amm.UtenteRegistratoFactory;
 import amm.Post;
 import amm.PostFactory;
+import amm.Gruppi;
+import amm.GruppoFactory;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,8 +26,27 @@ import javax.servlet.http.HttpSession;
  *
  * @author Fabrizio
  */
+@WebServlet(name = "Login", urlPatterns = {"/login.jsp"}, loadOnStartup = 0)
 public class Login extends HttpServlet {
 
+    private static final String JDBC_DRIVER = "org.apache.derby.jdbc.EmbeddedDriver";
+    private static final String DB_CLEAN_PATH = "../../web/WEB-INF/db-definition/ammdb";
+    private static final String DB_BUILD_PATH = "WEB-INF/db-definition/ammdb";
+    
+       @Override
+    public void init() {
+        String dbConnection = "jdbc:derby:" + this.getServletContext().getRealPath("/") + DB_BUILD_PATH;
+        try {
+            Class.forName(JDBC_DRIVER);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        //IMPOSTO LA CONNECTION STRING PER OGNI FACTORY
+        UtenteRegistratoFactory.getInstance().setConnectionString(dbConnection);
+        PostFactory.getInstance().setConnectionString(dbConnection);
+        GruppoFactory.getInstance().setConnectionString(dbConnection);
+    }
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -53,15 +77,19 @@ public class Login extends HttpServlet {
                 password != null) 
             {
                 int loggedUserID = UtenteRegistratoFactory.getInstance().getIdByUserAndPassword(username, password);
-                
+                 UtenteRegistrato utente = UtenteRegistratoFactory.getInstance().getUtenteById(loggedUserID);
                 
                 if(loggedUserID!=-1)
                 {
                     session.setAttribute("loggedIn", true);
                     session.setAttribute("loggedUserID", loggedUserID);
-                    
-                    request.getRequestDispatcher("Bacheca").forward(request, response);
-                    return;
+                    if(utente.getNome()!= null && utente.getCognome()!=null && utente.getData()!=null && utente.getEmail()!=null && utente.getFrase()!=null && utente.getUrlimg()!=null){
+                         request.getRequestDispatcher("Bacheca").forward(request, response);
+                         return;
+                    }else{
+                        request.getRequestDispatcher("Profilo").forward(request, response);
+                        return;
+                    }
                 } else { 
                     request.setAttribute("invalidData", true);
                     request.getRequestDispatcher("login.jsp").forward(request, response);

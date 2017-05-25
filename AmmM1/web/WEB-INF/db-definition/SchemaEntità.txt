@@ -1,0 +1,45 @@
+
+
+Entità
+1)UtenteRegistrato
+pk: Id
+-Nome
+-Cognome
+-urlImg
+-frase
+-Data
+-email
+-password
+-confermaPsw
+
+2)Post
+Pk: Id
+fk: User
+-Contenuto
+fk: postType
+fk: Gruppo
+
+3)Type
+pk: idTipo
+-Tipo
+
+4)Gruppo
+pk: Id
+-Nome
+
+5)Membri
+fk: idGruppo
+fk: idMembro
+
+6)Amicizie
+
+fk: idMembro
+fk: idMembro
+
+
+Relazioni
+UtenteRegistrato-Post  1-n;
+Type-Post 1-n;
+Gruppo-Post 1-n
+UtenteRegistrato-Gruppo n-n.
+UtenteRegistrato-UtenteRegistrato n-n  

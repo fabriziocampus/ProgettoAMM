@@ -23,6 +23,11 @@
 
             <c:set var="page" value="Bacheca" scope="request"/>
             <jsp:include page="BacNav.jsp"/>
+            
+            <c:if test="${empty param.user}">
+                    <a id="logout" href="Login?logout=1">Logout</a>   
+            </c:if>
+                    
         </header>
         <div id="colonna">
             <form action="#" method="POST">
@@ -39,26 +44,26 @@
             <img title="foto ritardatari" alt="Foto ritardatari" src="sv.jpg"><a href="#">Ritardatari</a>
              </div>
         <div class="immagineProfilo">
-            <img title="Foto Profilo" alt="Foto Del Profilo" src="profilo.jpg">
+            <img title="Foto Profilo" alt="Foto Del Profilo" src="${utente.urlimg}">
         </div>
         <div id="idBody">
                    
-            <form action="#" method="POST">
+            <form action="Profilo" method="POST">
                 <div id="datiAnagrafici">
                 <label for="nome">Nome</label>
-                <input type="text" name="nome" id="nome" value="Inserisci nome">
+                <input type="text" name="nome" id="nome" value="${utente.nome}">
                 <label for="cognome">Cognome</label>
-                <input type="text" name="cognome" id="cognome" value="Inserisci cognome">
+                <input type="text" name="cognome" id="cognome" value="${utente.cognome}">
                  <label for="data">Data di nascita</label>
-                <input type="date" name="data" id="data">
+                <input type="text" name="data" id="data" value="${utente.data}">
                 <label for="immagineProfilo">Immagine del profilo</label>
-                <input type="text" name="immagineProfilo" id="immagineProfilo" value="Inserisici Url">
+                <input type="text" name="immagineProfilo" id="immagineProfilo" value="${utente.urlimg}">
                 <label for="frase">Frase di presentazione</label>
-                <input type="text" name="frase" id="frase" value="Inserisci frase">
+                <input type="text" name="frase" id="frase" value="${utente.frase}">
                 <label for="password">Password</label>
-                <input type="text" name="password" id="password" value="Inserisci password">
+                <input type="text" name="password" id="password" value="${utente.password}">
                 <label for="conferma">Conferma password</label>
-                <input type="text" name="conferma" id="conferma" value="Conferma password">
+                <input type="text" name="conferma" id="conferma" value="${utente.confermapsw}">
                 <button type="submit">Aggiorna</button>
                 </div>
             </form>

@@ -21,17 +21,15 @@ public class UtenteRegistrato {
     private String confermapsw;
     
     public UtenteRegistrato(){
-        id=0;
-        nome ="";
-        cognome ="";
-        data="";
-        cognome = "";
-        data="";
-        urlimg="";
-        frase="";
-        email="";
-        password="";
-        confermapsw="";
+        id=1;
+        nome =null;
+        cognome =null;
+        data=null;
+        urlimg=null;
+        frase=null;
+        email=null;
+        password=null;
+        confermapsw=null;
     }
     /**
      * @return the id

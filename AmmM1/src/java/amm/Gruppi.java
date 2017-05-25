@@ -18,8 +18,6 @@ public class Gruppi {
     
    private int idGruppo;
    private String nomeGruppo;
-   private UtenteRegistrato membro[];
-   private Post post;
    
    public Gruppi(){
        idGruppo=0;
@@ -55,32 +53,4 @@ public class Gruppi {
         this.nomeGruppo = nomeGruppo;
     }
 
-    /**
-     * @return the membro
-     */
-    public UtenteRegistrato[] getMembro() {
-        return membro;
-    }
-
-    /**
-     * @param membro the membro to set
-     */
-    public void setMembro(UtenteRegistrato[] membro) {
-        this.membro = membro;
-    }
-
-    /**
-     * @return the post
-     */
-    public Post getPost() {
-        return post;
-    }
-
-    /**
-     * @param post the post to set
-     */
-    public void setPost(Post post) {
-        this.post = post;
-    } 
-    
 }

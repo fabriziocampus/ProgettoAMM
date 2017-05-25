@@ -24,6 +24,10 @@
 
          <c:set var="page" value="Bacheca" scope="request"/>
          <jsp:include page="BacNav.jsp"/>
+         
+         <c:if test="${empty param.user}">
+                    <a id="logout" href="Login?logout=1">Logout</a>   
+        </c:if>
         
        </header>
        
@@ -43,15 +47,36 @@
          </div>
         <div id="idBody">
             <div id="nuovoPost">
-                <form action="#" method="POST">
-                    <img title="allegato" alt="allegato" src="allegato.png"><input type="text" name="nuovoPost" id="nuovo" value="Nuovo post"><br />
-                    <img title="allegato" alt="allegato" src="allegato.png"><input type="text" name="allegato" id="allegato" value="Url Allegato(opzionale)"><br />
-                    <input type="radio" name="scelta" id="img" value="immagine" checked="checked">Immagine
-                    <input type="radio" name="scelta" id="link" value="link">Link<br />
-                    <button type="submit">Crea Post</button>
-                </form>
+                      <c:choose>
+                          <c:when test="${empty newpost}">
+                            <form action="NuovoPost" method="post">
+                                <img title="allegato" alt="allegato" src="allegato.png"><textarea name="textPost" id="textPost"></textarea><br />
+                                 <input type="radio" name="postType" id="text" value="textType" checked="checked">Testo
+                                 <input type="radio" name="postType" id="img" value="imgType">Immagine
+                                 <input type="radio" name="postType" id="link" value="linkType">Link<br />
+                                 <button type="submit" name="thereIsPost" value="needConfirm">Crea Post</button>
+                            </form>
+                        </c:when>
+                <c:otherwise>
+                    <div id="formNewPost">
+                        <form action="NuovoPost" method="post">
+                            <c:if test="${typePost == 'textType'}">
+                                <p>${content}</p>
+                            </c:if>
+                            <c:if test="${typePost == 'imgType'}">
+                                <img src="${content}" alt="downloadedImage">
+                            </c:if>
+                             <c:if test="${typePost == 'linkType'}">
+                                 <a href="${content}">${content}</a>
+                            </c:if>
+                            <input type="text" hidden name="textPost" value="${content}">
+                            <input type="text" hidden name="postType" value="${typePost}">
+                            <button type="submit" name="thereIsPost" value="Confirmed">Conferma</button>
+                        </form>
+                    </div>
+                </c:otherwise>
+            </c:choose>
             </div>
-            
             <c:forEach var="post" items="${posts}">
                     <div class="post">
                         <img alt="Foto del profilo" src="${post.user.urlimg}">

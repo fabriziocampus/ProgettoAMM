@@ -8,6 +8,6 @@
 <nav id="navBar">
     <ul>
         <li <c:if test="${page=='Bacheca'}" class="active"></c:if><a href="Bacheca">Bacheca</a></li>
-        <li <c:if test="${page=='Profilo'}"class="active"></c:if><a href="profilo.jsp">Profilo</a></li>
+        <li <c:if test="${page=='Profilo'}"class="active"></c:if><a href="Profilo">Profilo</a></li>
     </ul>
 </nav>
