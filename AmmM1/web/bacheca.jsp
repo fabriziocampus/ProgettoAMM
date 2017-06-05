@@ -13,6 +13,8 @@
         <meta name="author" content="Fabrizio">
         <meta name="keywords" content="bacheca">
         <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/filter.js"></script>
         <title>Bacheca</title>
     </head>
     
@@ -32,11 +34,13 @@
        </header>
        
          <div id="colonna">
-            <form action="#" method="POST">
-                <label>Cerca</label>
-                <input type="text" name="cerca" id="cerca" value="Cerca" />
-                <button type="submit">Cerca</button>
-            </form>
+                <input id="searchField" type="text" placeholder="search" value="">
+                <button id="search">Cerca</button>
+              <c:forEach var="utente" items="${utente}">
+                    <img alt="Foto Profilo" src="${utente.urlimg}">
+                    <h2>${utente.nome}</h2>
+                    <a href="index.html?user=${utente.id}">Link al profilo</a>
+                </c:forEach>
             <h2>Persone</h2>
             <img title="foto profilo" alt="Foto del profilo" src="prof.jpg"><a href="#">Ronaldinho</a>
             <img title="foto profilo" alt="Foto del profilo" src="prof.png"><a href="#">Schelotto</a>

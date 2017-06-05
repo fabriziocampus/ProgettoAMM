@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author Fabrizio
@@ -123,4 +124,48 @@ public class UtenteRegistratoFactory {
         return -1;
 }
 
+    public List getUtentiList(String name) {
+        List<UtenteRegistrato> listaut = new ArrayList<UtenteRegistrato>();
+        
+        try {
+            // path, username, password
+            Connection conn = DriverManager.getConnection(connectionString, "fabrizio", "fabrizio");
+            
+            String query = 
+                      "select * from UtenteRegistrato where UtenteRegistrato_name like ?";
+            
+            // Prepared Statement
+            PreparedStatement stmt = conn.prepareStatement(query);
+            
+            // Si associano i valori
+            stmt.setString(1, "%" + name + "%");
+            
+            // Esecuzione query
+            ResultSet res = stmt.executeQuery();
+
+            // ciclo sulle righe restituite
+            while (res.next()) {
+                UtenteRegistrato current = new UtenteRegistrato();
+                current.setId(res.getInt("UtenteRegistrato_id"));
+                current.setNome(res.getString("UtenteRegistrato_name"));
+                current.setCognome(res.getString("UtenteRegistrato_surname"));
+                current.setUrlimg(res.getString("UrlImg"));
+                current.setData(res.getString("Date"));
+                current.setFrase(res.getString("Frase"));
+                current.setEmail(res.getString("Email"));
+                current.setPassword(res.getString("Password"));
+                current.setConfermapsw(res.getString("ConfermaPsw"));
+                
+                listaut.add(current);
+            }
+
+            stmt.close();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return listaut;
+    }
+    
 }
